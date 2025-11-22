@@ -12,7 +12,7 @@ blue = "\033[38;5;75m"
 clear = "\033[0m"
 
 VERSION = "1.0"
-GITHUB_REPO = "https://raw.githubusercontent.com/kaczza/dcnuker/main/version.txt"
+GITHUB_REPO = "https://raw.githubusercontent.com/kaczza/dcnuker/refs/heads/main/version.txt"
 
 class NukeManager:
     def __init__(self):
@@ -264,6 +264,7 @@ async def nuke_server(token, guild_id, user_id=None, nuker_name="ChatGPT", spam_
                 if nuke_manager.running:
                     print(f'{ZROX}✅ Nuke completed successfully!{clear}')
                 await client.close()
+                os.system('cls' if os.name == 'nt' else 'clear')
 
             asyncio.create_task(send_messages())
 
@@ -347,18 +348,20 @@ def main():
                     if latest_version != VERSION:
                         print(f"{ZROX}📥 Update available! Downloading version {latest_version}...{clear}")
                         
-                        code_url = "https://raw.githubusercontent.com/kaczza/ZROX/main/dcnuker.py"
+                        code_url = "https://raw.githubusercontent.com/kaczza/dcnuker/main/Nuke.py"
                         code_response = requests.get(code_url)
                         
                         if code_response.status_code == 200:
                             current_file = sys.argv[0]
-                            backup_file = f"zrox_v{VERSION}.py"
+                            backup_file = f"zrox_backup_v{VERSION}.py"
                             
                             with open(backup_file, "w", encoding="utf-8") as f:
                                 with open(current_file, "r", encoding="utf-8") as current:
-                                    f.write(current.read())
+                                    f.write(current.read())  
                             with open(current_file, "w", encoding="utf-8") as f:
-                                f.write(code_response.text)
+                                lines = code_response.text.split('\n')
+                                cleaned_lines = [line.rstrip() for line in lines]
+                                f.write('\n'.join(cleaned_lines))
                             
                             print(f"{ZROX}✅ Update {latest_version} downloaded successfully!{clear}")
                             print(f"{ZROX}📁 Backup saved as: {backup_file}{clear}")
