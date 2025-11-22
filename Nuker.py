@@ -348,7 +348,7 @@ def main():
                     if latest_version != VERSION:
                         print(f"{ZROX}📥 Update available! Downloading version {latest_version}...{clear}")
                         
-                        code_url = "https://raw.githubusercontent.com/kaczza/dcnuker/main/Nuke.py"
+                        code_url = "https://raw.githubusercontent.com/kaczza/dcnuker/main/Nuker.py"
                         code_response = requests.get(code_url)
                         
                         if code_response.status_code == 200:
@@ -378,3 +378,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
