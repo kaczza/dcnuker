@@ -26,17 +26,15 @@ def check_update():
         if response.status_code == 200:
             latest_version = response.text.strip()
             if latest_version != VERSION:
-                print(f"{red}⚠️ Update available! Current: {VERSION} | Latest: {latest_version}{clear}")
-                print(f"{ZROX}Run 'update' to get the latest version{clear}")
-                input()
+                print(f"Update available! Current: {VERSION} | Latest: {latest_version}")
+                print("Run 'update' to get the latest version")
                 return False
             else:
-                print(f"{ZROX}✅ You have the latest version ({VERSION}){clear}")
-                print(f"{red}Press enter to continue{clear}")
-                input()
+                print("You have the latest version ({VERSION}){clear}")
+                print("Press enter to continue{clear}")
                 return True
     except:
-        print(f"{red}❌ Failed to check for updates{clear}")
+        print("Failed to check for updates")
         input()
         return True
 
@@ -378,4 +376,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
