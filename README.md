@@ -69,11 +69,11 @@ A powerful Discord server nuker. Use responsibly and only on servers you own or 
 
 ## 📸 Process Overview
 
-1. Template Backup → 2. User Promotion → 3. Server Rename
+1 Template Backup → 2 User Promotion → 3 Server Rename
        ↓
-4. Delete Channels → 5. Delete Roles → 6. Create New Channels
+4 Delete Channels → 5 Delete Roles → 6 Create New Channels
        ↓
-7. Create New Role → 8. Assign Role → 9. Message Spam
+7 Create New Role → 8 Assign Role → 9 Message Spam
 
 ## 🎨 Customization
 
